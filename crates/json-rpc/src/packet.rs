@@ -236,14 +236,14 @@ impl<Payload, ErrData> ResponsePacket<Payload, ErrData> {
         }
     }
 
-    /// Returns the [ErrorPayload] if the response is an error.
+    /// Returns the [`ErrorPayload`] if the response is an error.
     ///
     /// For batch responses, this returns the first error response.
     pub fn as_error(&self) -> Option<&ErrorPayload<ErrData>> {
         self.iter_errors().next()
     }
 
-    /// Returns an iterator over the [ErrorPayload]s in the response.
+    /// Returns an iterator over the [`ErrorPayload`]s in the response.
     pub fn iter_errors(&self) -> impl Iterator<Item = &ErrorPayload<ErrData>> + '_ {
         match self {
             Self::Single(single) => ResponsePacketErrorsIter::Single(Some(single)),
@@ -276,7 +276,7 @@ impl<Payload, ErrData> ResponsePacket<Payload, ErrData> {
     }
 }
 
-/// An Iterator over the [ErrorPayload]s in a [ResponsePacket].
+/// An Iterator over the [`ErrorPayload`]s in a [`ResponsePacket`].
 #[derive(Clone, Debug)]
 enum ResponsePacketErrorsIter<'a, Payload, ErrData> {
     Single(Option<&'a Response<Payload, ErrData>>),

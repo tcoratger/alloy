@@ -31,7 +31,7 @@ impl RequestMeta {
     }
 
     /// Indicates that the request is a non-standard subscription (i.e. not
-    /// "eth_subscribe").
+    /// "`eth_subscribe`").
     pub fn set_is_subscription(&mut self) {
         self.set_subscription_status(true);
     }
@@ -72,7 +72,7 @@ impl<Params> Request<Params> {
     }
 
     /// Indicates that the request is a non-standard subscription (i.e. not
-    /// "eth_subscribe").
+    /// "`eth_subscribe`").
     pub fn set_is_subscription(&mut self) {
         self.meta.set_is_subscription()
     }

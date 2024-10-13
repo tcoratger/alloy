@@ -14,7 +14,7 @@ where
     value.map(|value| ttd_from_value::<'de, D>(value)).transpose()
 }
 
-/// Converts the given [serde_json::Value] into a `U256` value for TTD deserialization.
+/// Converts the given [`serde_json::Value`] into a `U256` value for TTD deserialization.
 fn ttd_from_value<'de, D>(val: Value) -> Result<U256, D::Error>
 where
     D: Deserializer<'de>,

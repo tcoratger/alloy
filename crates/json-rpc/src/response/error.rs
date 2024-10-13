@@ -81,7 +81,7 @@ impl<E> ErrorPayload<E> {
         Self { code: -32603, message, data: Some(data) }
     }
 
-    /// Analyzes the [ErrorPayload] and decides if the request should be
+    /// Analyzes the [`ErrorPayload`] and decides if the request should be
     /// retried based on the error code or the message.
     pub fn is_retry_err(&self) -> bool {
         // alchemy throws it this way
@@ -329,7 +329,7 @@ where
         }
     }
 
-    /// Attempt to extract revert data from the JsonRpcError be recursively
+    /// Attempt to extract revert data from the `JsonRpcError` be recursively
     /// traversing the error's data field
     ///
     /// This returns the first hex it finds in the data object, and its

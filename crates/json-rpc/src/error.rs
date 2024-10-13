@@ -24,7 +24,7 @@ pub enum RpcError<E, ErrResp = Box<RawValue>> {
     /// JSON serialization error.
     #[error("serialization error: {0}")]
     SerError(
-        /// The underlying serde_json error.
+        /// The underlying `serde_json` error.
         // To avoid accidentally confusing ser and deser errors, we do not use
         // the `#[from]` tag.
         #[source]
@@ -33,7 +33,7 @@ pub enum RpcError<E, ErrResp = Box<RawValue>> {
     /// JSON deserialization error.
     #[error("deserialization error: {err}")]
     DeserError {
-        /// The underlying serde_json error.
+        /// The underlying `serde_json` error.
         // To avoid accidentally confusing ser and deser errors, we do not use
         // the `#[from]` tag.
         #[source]
@@ -76,8 +76,8 @@ where
     /// text. This should be called when the error occurs during
     /// deserialization.
     ///
-    /// Note: This will check if the response is actually an [ErrorPayload], if so it will return a
-    /// [RpcError::ErrorResp].
+    /// Note: This will check if the response is actually an [`ErrorPayload`], if so it will return a
+    /// [`RpcError::ErrorResp`].
     pub fn deser_err(err: serde_json::Error, text: impl AsRef<str>) -> Self {
         let text = text.as_ref();
 
